@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">NUMAD21Sp-BayleyCarter</string>
     <string name="about">About</string>
+    <string name="a">A</string>
+    <string name="c">C</string>
+    <string name="b">B</string>
+    <string name="d">D</string>
+    <string name="e">E</string>
+    <string name="f">F</string>
+    <string name="button_pressed">Button Pressed:</string>
 </resources>
