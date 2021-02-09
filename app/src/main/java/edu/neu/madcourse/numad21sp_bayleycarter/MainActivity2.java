@@ -41,22 +41,22 @@ public class MainActivity2 extends AppCompatActivity {
 
         switch(view.getId()) {
             case R.id.A_button:
-                btnPressed.setText("Button Pressed: A");
+                btnPressed.setText("Pressed: A");
                 break;
             case R.id.B_button:
-                btnPressed.setText("Button Pressed: B");
+                btnPressed.setText("Pressed: B");
                 break;
             case R.id.C_button:
-                btnPressed.setText("Button Pressed: C");
+                btnPressed.setText("Pressed: C");
                 break;
             case R.id.D_button:
-                btnPressed.setText("Button Pressed: D");
+                btnPressed.setText("Pressed: D");
                 break;
             case R.id.E_button:
-                btnPressed.setText("Button Pressed: E");
+                btnPressed.setText("Pressed: E");
                 break;
             case R.id.F_button:
-                btnPressed.setText("Button Pressed: F");
+                btnPressed.setText("Pressed: F");
                 break;
 
         }

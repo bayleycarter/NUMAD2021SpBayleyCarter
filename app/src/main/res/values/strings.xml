@@ -9,4 +9,8 @@
     <string name="f">F</string>
     <string name="button_pressed">Button Pressed:</string>
     <string name="click_here">Click Here!</string>
+    <string name="pressed">Pressed</string>
+    <string name="pressedButton">Pressed:</string>
+    <string name="string_pressed" />
+    <string name="A">Pressed:</string>
 </resources>
