@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txt;
     Button btn;
+    Button clickHere;
 
 //    text button
     @Override
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         txt = (TextView) findViewById(R.id.nameemail);
         btn = (Button) findViewById(R.id.aboutbutton);
+        clickHere = (Button) findViewById(R.id.clickHereButton);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,10 +32,19 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        clickHere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSixButtons();
+            }
+        });
+
     }
 
-    public void getSixButtons(View view) {
-        Intent intent = new Intent(this, MainActivity2.class);
-        startActivity(intent);
+    private void getSixButtons() {
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        MainActivity.this.startActivity(intent);
+
+
     }
 }
