@@ -85,36 +85,19 @@ public class MainActivity3 extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         EditText input = new EditText(this);
-        //input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
         builder.setView(input);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int pos) {
                 m_Text = input.getText().toString();
-                listOfLinks.add(position, new LinkName(input.getText().toString(), ""));
+                listOfLinks.add(position, new LinkName("", m_Text));
             }
         });
 
         builder.show();
 
 
-
-        /*AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
-        final EditText input2 = new EditText(this);
-        input2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        builder2.setView(input2);
-        builder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                m_Text2 = input2.getText().toString();
-            }
-        });
-
-
-        builder2.show();
-
-        String linkUrlInput = m_Text2.toString();
-        */
         listOfLinks.add(position, new LinkName(m_Text, ""));
         viewAdapter.notifyItemInserted(position);
     }
