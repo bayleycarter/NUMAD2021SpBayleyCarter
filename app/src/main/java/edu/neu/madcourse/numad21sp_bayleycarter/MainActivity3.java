@@ -2,15 +2,144 @@ package edu.neu.madcourse.numad21sp_bayleycarter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
+import android.view.View;
+import android.widget.EditText;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+
 
 public class MainActivity3 extends AppCompatActivity {
+
+    private ArrayList<LinkName> linkList = new ArrayList<>();
+
+    private String  s2[];
+    private ArrayList<LinkName> listOfLinks = new ArrayList<>();
+
+
+    private RecyclerView recyclerView;
+    private ViewAdapter viewAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private FloatingActionButton linkButton;
+    public String m_Text;
+    public String m_Text2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.my_row);
         Intent myIntent = getIntent();
+
+        recyclerView = findViewById(R.id.recyclerview);
+
+        //LinkName s1 = new LinkName("", "");
+        //listOfLinks.add(s1);
+        //LinkName s2 = new LinkName("", "");
+        //listOfLinks.add(s2);
+        //LinkName s3 = new LinkName("", "");
+        //listOfLinks.add(s3);
+        //s1 = getResources().getStringArray(R.array.empty_links);
+        //s2 = getResources().getStringArray(R.array.empty_urls);
+
+
+        LinkName link1 = new LinkName("Nothing", "Nothing");
+        LinkName link2 = new LinkName("Nothing", "Nothing");
+        LinkName link3 = new LinkName("Nothing", "Nothing");
+        listOfLinks.add(link1);
+        listOfLinks.add(link2);
+        listOfLinks.add(link3);
+
+        //ViewAdapter myAdapter = new ViewAdapter(listOfLinks);
+        //recyclerView.setAdapter((myAdapter));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        createRecyclerView();
+
+        linkButton = findViewById(R.id.addLinkButton);
+        linkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = 0;
+
+                addItem(position);
+                Snackbar.make(v, "Added successfully!", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+
+            }
+        });
+
+    }
+
+    public void addItem(int position) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        EditText input = new EditText(this);
+        //input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text = input.getText().toString();
+                listOfLinks.add(position, new LinkName(input.getText().toString(), ""));
+            }
+        });
+
+        builder.show();
+
+
+
+        /*AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
+        final EditText input2 = new EditText(this);
+        input2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder2.setView(input2);
+        builder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text2 = input2.getText().toString();
+            }
+        });
+
+
+        builder2.show();
+
+        String linkUrlInput = m_Text2.toString();
+        */
+        listOfLinks.add(position, new LinkName(m_Text, ""));
+        viewAdapter.notifyItemInserted(position);
+    }
+
+    private void createRecyclerView() {
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+
+        viewAdapter = new ViewAdapter(listOfLinks);
+        ItemClickListener itemClickListener = new ItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                //attributions bond to the item has been changed
+                listOfLinks.get(position).onItemClick(position);
+
+                viewAdapter.notifyItemChanged(position);
+
+            }
+        };
+        viewAdapter.setOnItemClickListener(itemClickListener);
+
+        recyclerView.setAdapter(viewAdapter);
+        recyclerView.setLayoutManager(layoutManager);
+
+
     }
 }

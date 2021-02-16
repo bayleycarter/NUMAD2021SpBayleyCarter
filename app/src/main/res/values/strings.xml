@@ -13,4 +13,22 @@
     <string name="pressedButton">Pressed:</string>
     <string name="string_pressed" />
     <string name="A">Pressed:</string>
+    <string name="todo">TODO</string>
+    <string name="add_link">add link</string>
+    <string name="link_collector">Link Collector</string>
+    <string name="linkName">TextView</string>
+    <string name="linkUrl">TextView</string>
+    <string name="empty_name">Empty Name</string>
+    <string name="url">URL:</string>
+
+    <string-array name="empty_links">
+        <item>Name:</item>
+        <item>Name:</item>
+        <item>Name:</item>
+    </string-array>
+    <string-array name="empty_urls">
+        <item>URL:</item>
+        <item>URL:</item>
+        <item>URL:</item>
+    </string-array>
 </resources>
