@@ -22,12 +22,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
     public ViewAdapter(ArrayList<LinkName> listOfLinks) {
         //this.context = ct;
         this.listOfLinks = listOfLinks;
-        //for (int i = 0; i < listOfLinks.size(); i++) {
-        //    s1 = s1.add(listOfLinks.get(i).getLinkName());
-        //    s2 = s2.add(listOfLinks.get(i).getLinkUrl());
-        //}
-        //this.data1 = s1;
-        //this.data2 = s2;
+
     }
 
     public void setOnItemClickListener(ItemClickListener listener) {
@@ -38,7 +33,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.my_row, parent, false);
+        View view = inflater.inflate(R.layout.recyclerview_item, parent, false);
         return new ViewHolder(view, listener);
     }
 

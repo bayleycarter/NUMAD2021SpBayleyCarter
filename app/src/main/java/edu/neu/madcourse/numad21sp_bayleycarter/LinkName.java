@@ -5,8 +5,8 @@ import android.os.Parcelable;
 
 public class LinkName implements ItemClickListener {
 
-    private final String linkName;
-    private final String linkUrl;
+    private String linkName;
+    private String linkUrl;
 
 
     public LinkName(String linkName, String linkUrl) {
@@ -24,6 +24,10 @@ public class LinkName implements ItemClickListener {
         return "URL: " + this.linkUrl;
     }
 
+    public void setLinkUrl(String url) {
+        this.linkUrl = url;
+
+    }
 
     @Override
     public void onItemClick(int position) {
