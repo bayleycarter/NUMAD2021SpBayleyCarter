@@ -1,5 +1,6 @@
 package edu.neu.madcourse.numad21sp_bayleycarter;
 
+import android.content.ClipData;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -21,18 +22,12 @@ public class LinkName implements ItemClickListener {
     }
 
     public String getLinkUrl() {
-        return "URL: " + this.linkUrl;
+        return this.linkUrl;
     }
 
-    public void setLinkUrl(String url) {
-        this.linkUrl = url;
-
-    }
 
     @Override
     public void onItemClick(int position) {
         //launch url
     }
-
-
 }

@@ -14,13 +14,13 @@ import java.util.ArrayList;
 
 public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.ViewHolder> {
 
-    //String data1[], data2[];
+
     private final ArrayList<LinkName> listOfLinks;
     private ItemClickListener listener;
     //Context context;
 
     public ViewAdapter(ArrayList<LinkName> listOfLinks) {
-        //this.context = ct;
+
         this.listOfLinks = listOfLinks;
 
     }

@@ -26,9 +26,8 @@ import java.util.ArrayList;
 
 public class MainActivity3 extends AppCompatActivity {
 
-    private ArrayList<LinkName> linkList = new ArrayList<>();
 
-    private String  s2[];
+
     private ArrayList<LinkName> listOfLinks = new ArrayList<>();
 
 
@@ -37,7 +36,7 @@ public class MainActivity3 extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private FloatingActionButton linkButton;
     public String m_Text;
-    public String m_Text2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +56,13 @@ public class MainActivity3 extends AppCompatActivity {
         //s2 = getResources().getStringArray(R.array.empty_urls);
 
 
-        LinkName link1 = new LinkName("Nothing", "Nothing");
-        LinkName link2 = new LinkName("Nothing", "Nothing");
-        LinkName link3 = new LinkName("Nothing", "Nothing");
+        LinkName link1 = new LinkName("", "");
+        LinkName link2 = new LinkName("", "");
+        LinkName link3 = new LinkName("", "");
         listOfLinks.add(link1);
         listOfLinks.add(link2);
         listOfLinks.add(link3);
 
-        //ViewAdapter myAdapter = new ViewAdapter(listOfLinks);
-        //recyclerView.setAdapter((myAdapter));
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         createRecyclerView();
 
@@ -87,6 +83,7 @@ public class MainActivity3 extends AppCompatActivity {
     public void addItem(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         EditText input = new EditText(this);
+        input.setInputType(11);
 
         builder.setView(input);
 
@@ -97,26 +94,14 @@ public class MainActivity3 extends AppCompatActivity {
                 if (URLUtil.isValidUrl(m_Text)) {
                     listOfLinks.add(position, new LinkName("", m_Text));
                     viewAdapter.notifyItemInserted(position);
-                    Snackbar.make(findViewById(R.id.mainLayout), "Added successfully!", Snackbar.LENGTH_SHORT)
-                                .setAction("Action", null).show();
+                    Snackbar.make(findViewById(R.id.mainLayout), "Added successfully!",
+                            Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 }
                 else {
                     Snackbar.make(findViewById(R.id.mainLayout), "Not a valid URL: " +
                                     "Try using http:// and removing spaces", Snackbar.LENGTH_SHORT)
                                .setAction("Action", null).show();
                 }
-
-                //String url = listOfLinks.get(0).getLinkUrl();
-                //URLUtil.guessUrl(url);
-                //try {
-                  //  URL myURL = new URL(url);
-                    //make url clickable and launch on click
-
-                //} catch (MalformedURLException e) {
-
-                   //not added successfully
-                //}
-
             }
 
         });
@@ -139,7 +124,9 @@ public class MainActivity3 extends AppCompatActivity {
 
                 //viewAdapter.notifyItemChanged(position);
 
-                Intent browser_intent=new Intent(Intent.ACTION_VIEW, Uri.parse(listOfLinks.get(position).getLinkUrl()));
+
+                Intent browser_intent=new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(listOfLinks.get(position).getLinkUrl()));
                 startActivity(browser_intent);
 
             }
