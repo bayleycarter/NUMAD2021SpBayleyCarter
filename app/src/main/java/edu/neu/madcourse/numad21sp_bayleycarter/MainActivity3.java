@@ -56,12 +56,12 @@ public class MainActivity3 extends AppCompatActivity {
         //s2 = getResources().getStringArray(R.array.empty_urls);
 
 
-        LinkName link1 = new LinkName("", "");
-        LinkName link2 = new LinkName("", "");
-        LinkName link3 = new LinkName("", "");
-        listOfLinks.add(link1);
-        listOfLinks.add(link2);
-        listOfLinks.add(link3);
+        //LinkName link1 = new LinkName("", "");
+        //LinkName link2 = new LinkName("", "");
+        //LinkName link3 = new LinkName("", "");
+        //listOfLinks.add(link1);
+        //listOfLinks.add(link2);
+        //listOfLinks.add(link3);
 
 
         createRecyclerView();

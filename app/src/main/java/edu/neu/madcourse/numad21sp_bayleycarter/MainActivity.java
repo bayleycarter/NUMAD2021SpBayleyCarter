@@ -1,8 +1,11 @@
 package edu.neu.madcourse.numad21sp_bayleycarter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import android.view.View;
@@ -15,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn;
     Button clickHere;
     Button linkList;
+    Button locator;
+
 
 //    text button
     @Override
@@ -22,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         txt = (TextView) findViewById(R.id.nameemail);
         btn = (Button) findViewById(R.id.aboutbutton);
         clickHere = (Button) findViewById(R.id.clickHereButton);
         linkList = (Button) findViewById(R.id.linkButton);
+        locator = (Button) findViewById(R.id.locatorButton);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
                 getLinkList();
             }
         });
+        locator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { getLocator(); }
+        });
 
     }
 
@@ -61,5 +72,10 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(intent3);
 
 
+    }
+
+    private void getLocator() {
+        Intent intent4 = new Intent(MainActivity.this, MainActivity4.class);
+        MainActivity.this.startActivity(intent4);
     }
 }
