@@ -49,27 +49,6 @@ public class MainActivity5 extends AppCompatActivity {
 
     public void callWebserviceButtonHandler(View view){
         PingWebServiceTask task = new PingWebServiceTask();
-//        try {
-//            String url = NetworkUtil.validInput("http://www.omdbapi.com");
-//            task.execute(url); // This is a security risk.  Don't let your user enter the URL in a real app.
-//        } catch (NetworkUtil.MyException e) {
-//            Toast.makeText(getApplication(),e.toString(), Toast.LENGTH_SHORT).show();
-//
-//        }
-//        try {
-//            String url = NetworkUtil.validInput("https://www.omdbapi.com/?apikey=fda7f7f9&t=Fargo");
-//            URL urlResp = new URL("https://www.omdbapi.com/?apikey=fda7f7f9&t=Fargo" );
-//            task.execute(url);
-////            String resp = NetworkUtil.httpResponse(urlResp);
-////            mTitleTextView.setText(resp);
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (NetworkUtil.MyException e) {
-//            Toast.makeText(getApplication(),e.toString(), Toast.LENGTH_SHORT).show();
-////
-//        }
 
         task.execute();
 
@@ -80,7 +59,7 @@ public class MainActivity5 extends AppCompatActivity {
 
         @Override
         protected void onProgressUpdate(Integer... values) {
-            Log.i(TAG, "Making progress...");
+            Log.i(TAG, "Progress ongoing");
         }
 
         @Override
