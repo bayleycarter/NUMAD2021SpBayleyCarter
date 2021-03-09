@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -13,6 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_madworld_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21SpBayleyCarter">
+        <activity
+            android:name=".MainActivity5"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".MainActivity2"
             android:configChanges="orientation|screenSize" />

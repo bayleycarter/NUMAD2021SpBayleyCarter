@@ -1,11 +1,8 @@
 package edu.neu.madcourse.numad21sp_bayleycarter;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.Manifest;
 import android.content.Intent;
-import android.location.LocationManager;
 import android.os.Bundle;
 
 import android.view.View;
@@ -19,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button clickHere;
     Button linkList;
     Button locator;
+    Button currency;
 
 
 //    text button
@@ -33,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         clickHere = (Button) findViewById(R.id.clickHereButton);
         linkList = (Button) findViewById(R.id.linkButton);
         locator = (Button) findViewById(R.id.locatorButton);
+        currency = (Button) findViewById(R.id.imdbButton);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) { getLocator(); }
         });
+        currency.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { getCurrency(); }
+        });
 
     }
 
@@ -77,5 +80,10 @@ public class MainActivity extends AppCompatActivity {
     private void getLocator() {
         Intent intent4 = new Intent(MainActivity.this, MainActivity4.class);
         MainActivity.this.startActivity(intent4);
+    }
+
+    private void getCurrency() {
+        Intent intent5 = new Intent (MainActivity.this, MainActivity5.class);
+        MainActivity.this.startActivity(intent5);
     }
 }
