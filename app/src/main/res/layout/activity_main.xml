@@ -76,7 +76,7 @@
         android:id="@+id/imdbButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find Movie"
+        android:text="Get Movie Info"
         app:layout_constraintBottom_toTopOf="@id/aboutbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

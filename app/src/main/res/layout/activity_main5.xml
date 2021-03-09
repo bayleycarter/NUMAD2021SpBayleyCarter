@@ -10,18 +10,18 @@
         android:id="@+id/convertButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Call Service"
+        android:text="Send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_constraintTop_toBottomOf="@id/input" />
 
     <TextView
-        android:id="@+id/result_textView"
+        android:id="@+id/resultTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@id/convertButton"
+        android:text="Title: "
+        app:layout_constraintBottom_toTopOf="@id/resultYear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/URL_editText"
@@ -32,10 +32,54 @@
         android:id="@+id/URL_editText"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/result_textView"
+        app:layout_constraintBottom_toTopOf="@+id/resultTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:inputType="text" />
+
+    <TextView
+        android:id="@+id/resultRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rating: "
+        app:layout_constraintBottom_toTopOf="@id/convertButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resultYear"
+        tools:layout_constraintTop_toBottomOf="@id/result_textView" />
+
+    <TextView
+        android:id="@+id/resultYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Year:"
+        app:layout_constraintBottom_toTopOf="@id/resultRating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resultTitle"
+        tools:layout_constraintTop_toBottomOf="@id/resultTitle" />
+
+    <TextView
+        android:id="@+id/searchHere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type In Movie Name Here:"
+        app:layout_constraintBottom_toTopOf="@id/URL_editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView6" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="12dp"
+        android:text="Information brought to you by https://omdbapi.com"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

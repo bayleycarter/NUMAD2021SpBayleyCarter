@@ -1,6 +1,5 @@
 package edu.neu.madcourse.numad21sp_bayleycarter;
 
-import android.net.Network;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,17 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
@@ -28,8 +24,8 @@ public class MainActivity5 extends AppCompatActivity {
 
     private static final String TAG = "WebService Activity";
 
-    private EditText mURLEditText;
-    private TextView mTitleTextView;
+    private EditText editTextUrl;
+    private TextView titleTextView;
     private Button btn;
 
     @Override
@@ -37,17 +33,14 @@ public class MainActivity5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
 
-        mURLEditText = (EditText) findViewById(R.id.URL_editText);
-        mTitleTextView = (TextView) findViewById(R.id.result_textView);
+        editTextUrl = (EditText) findViewById(R.id.URL_editText);
+        titleTextView = (TextView) findViewById(R.id.resultTitle);
         btn = (Button) findViewById(R.id.convertButton);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 callWebserviceButtonHandler(v);
-
-                //mTitleTextView.setText();
             }
         });
 
@@ -92,6 +85,7 @@ public class MainActivity5 extends AppCompatActivity {
         @Override
         protected JSONObject doInBackground(String... params) {
 
+
             JSONObject jObject = new JSONObject();
             try {
 
@@ -99,20 +93,12 @@ public class MainActivity5 extends AppCompatActivity {
                 builder.scheme("https")
                         .authority("www.omdbapi.com")
                         .appendQueryParameter("apikey", "fda7f7f9")
-                        .appendQueryParameter("t", "Fargo");
+                        .appendQueryParameter("t", editTextUrl.getText().toString());
                 URL url = new URL(builder.build().toString());
 
-                // Get String response from the url address
                 String resp = NetworkUtil.httpResponse(url);
-                //Log.i("resp",resp);
-
-//                JSONArray jArray = new JSONArray(resp);    // Use this if your web service returns an array of objects.  Arrays are in [ ] brackets.
-
-                // Transform String into JSONObject
                 jObject = new JSONObject(resp);
 
-                //Log.i("jTitle",jObject.getString("title"));
-                //Log.i("jBody",jObject.getString("body"));
                 return jObject;
 
             } catch (MalformedURLException e) {
@@ -135,12 +121,21 @@ public class MainActivity5 extends AppCompatActivity {
         @Override
         protected void onPostExecute(JSONObject jObject) {
             super.onPostExecute(jObject);
-            TextView result_view = (TextView)findViewById(R.id.result_textView);
+            TextView resultTitle = (TextView)findViewById(R.id.resultTitle);
+            TextView resultYear = (TextView)findViewById(R.id.resultYear);
+            TextView resultRating = (TextView)findViewById(R.id.resultRating);
+
             try {
-                result_view.setText(jObject.getString("Title"));
-//                mTitleTextView.setText(jObject.getString("fuck"));
+                String movieTitle = jObject.getString("Title");
+                String movieYear = jObject.getString("Year");
+                String movieRating = jObject.getString("Rated");
+                resultTitle.setText("Title: " + movieTitle);
+                resultYear.setText("Year Released: " + movieYear);
+                resultRating.setText("Rating: " + movieRating);
             } catch (JSONException e) {
-                result_view.setText("Something went wrong!");
+                resultTitle.setText("Sorry, we couldn't find a movie with that name!");
+                resultYear.setText("");
+                resultRating.setText("");
             }
 
         }

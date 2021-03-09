@@ -68,7 +68,7 @@ public final class NetworkUtil {
         conn.setDoOutput(true);
 
         conn.connect();
-        // Read response.
+
         InputStream inputStream = conn.getInputStream();
         String resp = NetworkUtil.convertStreamToString(inputStream);
 
